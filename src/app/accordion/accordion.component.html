@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row" >
+        <form (submit)="onSubmit(myForm)" #myForm="ngForm" class="  form-control-sm">
+            <div col-md-6 >
+                <div class="card">
+                    <p class="text-danger wrapper-card"><u>Add Section</u></p>
+                    <label for="header" class="wrapper-header">Section Header</label>
+                    <input type="text" [(ngModel)]="title"  name="header">
+                    <label for="detail" class="wrapper-detail" >Section Details</label>
+                    <textarea  [(ngModel)]="content"  name="deatail"></textarea>
+                    <button class="btn btn-info" (click)="addItem()">submit</button>
+                </div>
+            </div>
+        </form>
+            <div col-md-6  class="box">
+                <p-accordion  *ngFor= "let item of items">
+                    <p-accordionTab header={{item.title}}>
+                        <p class="content">
+                            {{item.content }}
+                        </p>
+                    </p-accordionTab>
+                </p-accordion>
+           </div>
+    </div>
+</div>
+
